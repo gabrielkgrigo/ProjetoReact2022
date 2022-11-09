@@ -23,5 +23,6 @@ namespace Api.Data
         public DbSet<Pokemon> Pokemon {get; set;}
         public DbSet<Elemento> Elemento {get; set;}
         public DbSet<Regiao> Regiao {get; set;}
+        public DbSet<User> Usuario { get; set; }
     }
 }

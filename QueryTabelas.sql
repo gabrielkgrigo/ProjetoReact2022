@@ -19,6 +19,17 @@ CREATE TABLE Regiao (
     PRIMARY KEY CLUSTERED ([id_regiao] ASC)
 );
 
+CREATE TABLE usuario (
+	[id] INT IDENTITY (1, 1) NOT NULL,
+	[username] VARCHAR (10) NULL,
+	[senha] VARCHAR (10) NULL,
+	[role] VARCHAR (20) NULL,
+	PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+Insert into usuario (username, senha, role) values ('Pedro', 'teste123', 'administrador');
+Insert into usuario (username, senha, role) values ('Jo√£o', 'teste123', 'cliente');
+
 INSERT INTO Pokemon (numero,nome,id_elemento,id_regiao) VALUES (1, 'Bulbasaur', 4, 1)
 INSERT INTO Pokemon (numero,nome,id_elemento,id_regiao) VALUES (4, 'Charmander', 2, 1)
 INSERT INTO Pokemon (numero,nome,id_elemento,id_regiao) VALUES (7, 'Squirtle', 3, 1)
@@ -28,21 +39,21 @@ INSERT INTO Pokemon (numero,nome,id_elemento,id_regiao) VALUES (197, 'Umbreon', 
 
 INSERT INTO Elemento (nome) VALUES ('Normal')
 INSERT INTO Elemento (nome) VALUES ('Fogo')
-INSERT INTO Elemento (nome) VALUES ('¡gua')
+INSERT INTO Elemento (nome) VALUES ('√Ågua')
 INSERT INTO Elemento (nome) VALUES ('Grama')
-INSERT INTO Elemento (nome) VALUES ('ElÈtrico')
+INSERT INTO Elemento (nome) VALUES ('El√©trico')
 INSERT INTO Elemento (nome) VALUES ('Gelo')
 INSERT INTO Elemento (nome) VALUES ('Lutador')
 INSERT INTO Elemento (nome) VALUES ('Venenoso')
 INSERT INTO Elemento (nome) VALUES ('Terrestre')
 INSERT INTO Elemento (nome) VALUES ('Voador')
-INSERT INTO Elemento (nome) VALUES ('PsÌquico')
+INSERT INTO Elemento (nome) VALUES ('Ps√≠quico')
 INSERT INTO Elemento (nome) VALUES ('Inseto')
 INSERT INTO Elemento (nome) VALUES ('Pedra')
 INSERT INTO Elemento (nome) VALUES ('Fantasma')
 INSERT INTO Elemento (nome) VALUES ('Sombrio')
-INSERT INTO Elemento (nome) VALUES ('Drag„o')
-INSERT INTO Elemento (nome) VALUES ('AÁo')
+INSERT INTO Elemento (nome) VALUES ('Drag√£o')
+INSERT INTO Elemento (nome) VALUES ('A√ßo')
 INSERT INTO Elemento (nome) VALUES ('Fada')
 
 INSERT INTO Regiao (nome) VALUES ('Kanto')
