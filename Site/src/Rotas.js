@@ -9,12 +9,16 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 
 export default function Rotas() {
-    const [currentUser, setCurrentUser] = useState(undefined);
+    // constante que armazenará o nivel de autorização do usuário
+    const [currentUserRole, setCurrentUserRole] = useState(undefined);
+    // "cliente" pode acessar apenas a tela de pokemons
+    // "editor" pode acessar a tela de pokemons e de elementos
+    // "administrador" pode acessar a tela de pokemons, elementos e regioes
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
         if (user) {
-            setCurrentUser(user);
+            setCurrentUserRole(user.user.role);
         }
     }, []);
 
@@ -28,7 +32,7 @@ export default function Rotas() {
                     </Main> }
             />
 
-            {currentUser ? (
+            {["cliente","editor","administrador"].includes(currentUserRole) ? (
                 <Route exact path='/crudPokemon'
                     element={<CrudPokemon />}
                 />
@@ -42,7 +46,7 @@ export default function Rotas() {
                 />
             )}
 
-            {currentUser ? (
+            {["editor", "administrador"].includes(currentUserRole) ? (
                 <Route exact path='/crudElemento'
                     element={<CrudElemento/>}
                 />
@@ -56,7 +60,7 @@ export default function Rotas() {
                 />
             )}
 
-            {currentUser ? (
+            {currentUserRole === "administrador" ? (
                 <Route exact path='/crudRegiao'
                     element={<CrudRegiao/>}
                 />

@@ -11,6 +11,8 @@ export default function CrudElemento() {
     const [id_elemento, setIdElemento] = useState(0);
     const [nome, setNome] = useState('');
 
+    const [loading, setLoading] = useState(true);
+
     const [listaElementos, setListaElementos] = useState([]);
 
     
@@ -81,9 +83,13 @@ export default function CrudElemento() {
     };
 
     useEffect(() => {
-        axios(url_api_elementos).then(resp => {
-            setListaElementos(resp.data)
-        });
+        if(loading){
+            axios(url_api_elementos).then(resp => {
+                setListaElementos(resp.data)
+            });
+
+            setLoading(false);
+        }
     });
 
     const carregar = (elemento) => {

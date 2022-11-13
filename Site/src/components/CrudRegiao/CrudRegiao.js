@@ -13,6 +13,8 @@ export default function CrudRegiao() {
 
     const [listaRegioes, setListaRegioes] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+
     const renderForm = () => {
         return (
             <div className="inclui-container">
@@ -80,9 +82,13 @@ export default function CrudRegiao() {
     };
 
     useEffect(() => {
-        axios(url_api_regioes).then(resp => {
-            setListaRegioes(resp.data)
-        });
+        if(loading){
+            axios(url_api_regioes).then(resp => {
+                setListaRegioes(resp.data)
+            });
+            
+            setLoading(false);
+        }
     });
 
     const carregar = (regiao) => {

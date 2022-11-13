@@ -27,8 +27,9 @@ CREATE TABLE usuario (
 	PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
-Insert into usuario (username, senha, role) values ('Pedro', 'teste123', 'administrador');
-Insert into usuario (username, senha, role) values ('João', 'teste123', 'cliente');
+Insert into usuario (username, senha, role) values ('Pedro', 'teste123', 'administrador')
+INSERT INTO usuario (username, senha, role) values ('Luiz', 'senha123', 'editor')
+Insert into usuario (username, senha, role) values ('João', 'teste123', 'cliente')
 
 INSERT INTO Pokemon (numero,nome,id_elemento,id_regiao) VALUES (1, 'Bulbasaur', 4, 1)
 INSERT INTO Pokemon (numero,nome,id_elemento,id_regiao) VALUES (4, 'Charmander', 2, 1)

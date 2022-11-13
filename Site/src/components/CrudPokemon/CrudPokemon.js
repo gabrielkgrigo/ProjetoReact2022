@@ -11,6 +11,8 @@ export default function CrudPokemon () {
 
     const [mens, setMens] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+
     const url_api_pokemons = "https://localhost:7275/api/pokemon";
     const url_api_elementos = "https://localhost:7275/api/elemento";
     const url_api_regiao = "https://localhost:7275/api/regiao";
@@ -145,32 +147,36 @@ export default function CrudPokemon () {
     };
 
     useEffect(() => {
-        // axios(url_api_pokemons).then(resp => {
-        //     setListaPokemons(resp.data)
-        // });
+        if(loading){
+            // axios(url_api_pokemons).then(resp => {
+            //     setListaPokemons(resp.data)
+            // });
 
-        axios(url_api_elementos).then(resp => {
-            setListaElementos(resp.data)
-        });
+            axios(url_api_elementos).then(resp => {
+                setListaElementos(resp.data)
+            });
 
-        axios(url_api_regiao).then(resp => {
-            setListaRegioes(resp.data)
-        });
+            axios(url_api_regiao).then(resp => {
+                setListaRegioes(resp.data)
+            });
 
-        UserService.getAdministradorBoard().then(resp => {
-                setListaPokemons(resp.data);
-                setMens(null);
-            },
-            (error) => {
-                const _mens =
-                    (error.response &&
-                        error.response.data &&
-                        error.response.data.message) ||
-                    error.message ||
-                    error.toString();
-                setMens(_mens);
-                console.log("_mens: " + _mens);
-        });
+            UserService.getAdministradorBoard().then(resp => {
+                    setListaPokemons(resp.data);
+                    setMens(null);
+                },
+                (error) => {
+                    const _mens =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                    setMens(_mens);
+                    console.log("_mens: " + _mens);
+            });
+
+            setLoading(false);
+        }
     });
 
     const carregar = (pokemon) => {
