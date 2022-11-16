@@ -2,14 +2,11 @@ import axios from 'axios';
 import './CrudPokemon.css';
 import Main from '../template/Main';
 import { useEffect, useState } from "react";
-import UserService from '../../services/UserService';
 
 export default function CrudPokemon () {
     const title = "Cadastrar Pokémons";
 
     const user = JSON.parse(localStorage.getItem("user"));
-
-    const [mens, setMens] = useState([]);
 
     const [loading, setLoading] = useState(true);
 
@@ -148,9 +145,9 @@ export default function CrudPokemon () {
 
     useEffect(() => {
         if(loading){
-            // axios(url_api_pokemons).then(resp => {
-            //     setListaPokemons(resp.data)
-            // });
+            axios(url_api_pokemons).then(resp => {
+                setListaPokemons(resp.data)
+            });
 
             axios(url_api_elementos).then(resp => {
                 setListaElementos(resp.data)
@@ -158,21 +155,6 @@ export default function CrudPokemon () {
 
             axios(url_api_regiao).then(resp => {
                 setListaRegioes(resp.data)
-            });
-
-            UserService.getAdministradorBoard().then(resp => {
-                    setListaPokemons(resp.data);
-                    setMens(null);
-                },
-                (error) => {
-                    const _mens =
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
-                        error.message ||
-                        error.toString();
-                    setMens(_mens);
-                    console.log("_mens: " + _mens);
             });
 
             setLoading(false);
@@ -248,11 +230,8 @@ export default function CrudPokemon () {
 
     return (
         <Main title={title}>
-            { (mens) ?
-            "Problema com conexão ou autorização (contactar administrador)." : 
-                [renderForm(),
-                renderTable()]
-            }
+                {renderForm()}
+                {renderTable()}
         </Main>
     )
 
