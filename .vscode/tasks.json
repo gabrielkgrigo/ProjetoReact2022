@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ProjetoEscola_API/ProjetoEscola_API.csproj",
+                "${workspaceFolder}/ProjetoPokemon_API/ProjetoPokemon_API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/ProjetoEscola_API/ProjetoEscola_API.csproj",
+                "${workspaceFolder}/ProjetoPokemon_API/ProjetoPokemon_API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/ProjetoEscola_API/ProjetoEscola_API.csproj"
+                "${workspaceFolder}/ProjetoPokemon_API/ProjetoPokemon_API.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
