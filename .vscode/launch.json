@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/ProjetoPokemon_API/bin/Debug/net6.0/ProjetoPokemon_API.dll",
+            "program": "${workspaceFolder}/ProjetoReact2022/bin/Debug/net6.0/ProjetoReact2022.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/ProjetoPokemon_API",
+            "cwd": "${workspaceFolder}/ProjetoReact2022",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
